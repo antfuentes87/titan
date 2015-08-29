@@ -1,0 +1,16 @@
+{
+    "name": "antfuentes87/titan",
+    "description": "PHP Template Framework that works inside of a Joomla 3.x template",
+    "require": {
+        "matthiasmullie/minify": "^1.3",
+        "pelago/emogrifier": "^0.1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthony Fuentes",
+            "email": "antfuentes87@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
