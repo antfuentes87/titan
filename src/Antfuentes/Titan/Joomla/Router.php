@@ -66,15 +66,8 @@ class Router extends Database{
 	}
 	
 	public function init(){
-		$emogrifier = new Pelago\Emogrifier();
-		
 		$require = include($this->path);
-		
-		$emogrifier->setHtml($require);
-		$emogrifier->setCss('h1{color: red;}');
-		
-		$bodyContent = $emogrifier->emogrifyBodyContent();
-		echo $bodyContent;
+		return $require;
 	}
 	
 	public function meta(){
