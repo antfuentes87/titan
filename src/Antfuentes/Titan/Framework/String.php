@@ -1,5 +1,5 @@
 <?php
-namespace Antfuentes\Titan;
+namespace Antfuentes\Titan\Framework;
 
 class String
 {
