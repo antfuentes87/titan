@@ -12,5 +12,8 @@
             "email": "antfuentes87@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+	"autoload": {
+        "psr-4": {"titan\\": "src/"}
+    }
 }
