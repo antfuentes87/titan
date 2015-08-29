@@ -67,7 +67,7 @@ class Router extends Database{
 	
 	public function init(){
 		ob_start();
-		require($router->path);
+		require($this->path);
 		$data = ob_get_contents();
 		ob_end_clean();
 		return $data;
