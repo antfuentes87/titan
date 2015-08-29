@@ -4,6 +4,7 @@ namespace Antfuentes\Titan\Joomla;
 use Antfuentes\Titan\Joomla\Article;
 use Antfuentes\Titan\Joomla\Category;
 use Antfuentes\Titan\Framework\Html;
+use Pelago\Emogrifier;
 
 class Router extends Database{
 	public function load($id, $path, $option, $view, $layout, $config, $instance, $base){
@@ -65,7 +66,15 @@ class Router extends Database{
 	}
 	
 	public function init(){
-		$require = require($this->path);
+		$emogrifier = new Pelago\Emogrifier();
+		
+		$require = include($this->path);
+		
+		$emogrifier->setHtml($require);
+		$emogrifier->setCss('h1{color: red;}');
+		
+		$bodyContent = $emogrifier->emogrifyBodyContent();
+		echo $bodyContent;
 	}
 	
 	public function meta(){
