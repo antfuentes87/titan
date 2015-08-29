@@ -1,23 +1,11 @@
 {
-    "name": "antfuentes87/titan",
-    "description": "PHP Template Framework that works inside of a Joomla 3.x template",
-    "license": "MIT",
-    "minimum-stability": "stable",
-    "keywords": ["joomla", "php"],
-    "homepage": "https://github.com/antfuentes87/titan",
-    "authors": [
-        {
-            "name": "Anthony Fuentes",
-            "email": "antfuentes87@gmail.com",
-            "homepage": "https://github.com/antfuentes87"
-        }
-    ],
+    "name": "antfuentes/titan",
     "autoload": {
-        "psr-4": {
-            "": "src/"
+        "psr-0" : {
+            "Antfuentes\\Titan" : "src"
         }
     },
-   "require": {
+	"require": {
         "pelago/emogrifier": "^0.1.1",
         "matthiasmullie/minify": "^1.3"
     }
