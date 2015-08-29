@@ -66,8 +66,11 @@ class Router extends Database{
 	}
 	
 	public function init(){
-		$require = include($this->path);
-		return $require;
+		ob_start();
+		require($this->path));
+		$data = ob_get_clean();
+		ob_end_clean();
+		return $data;
 	}
 	
 	public function meta(){
