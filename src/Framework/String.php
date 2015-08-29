@@ -1,5 +1,5 @@
 <?php
-namespace titan;
+namespace Framework;
 
 class String{	
 	public function explode($array, $explode){
