@@ -1,7 +1,7 @@
 <?php
-namespace framework;
+namespace titan;
 
-class string{	
+class String{	
 	public function explode($array, $explode){
 		return explode($explode, $array);
 	}
