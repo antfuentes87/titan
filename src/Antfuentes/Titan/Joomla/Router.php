@@ -53,6 +53,9 @@ class Router extends Database{
 		}
 
 		if($this->routerView == 'categories'){
+			if($id == 0){
+				$id = 1;
+			}
 			$q = "SELECT title, alias FROM $this->categories WHERE id = '$id'";
 			$result = $this->q($q);
 			$this->dump($result);
