@@ -54,7 +54,6 @@ class Router extends Database{
 			}
 			$q = "SELECT title, alias FROM $this->categories WHERE id = '$id'";
 			$result = $this->q($q);
-			$this->dump($result);
 			$this->categoryAlias = $result[0]['alias'];
 			$this->categoryTitle = $result[0]['title'];
 			$pathAlias = $this->categoryAlias;
