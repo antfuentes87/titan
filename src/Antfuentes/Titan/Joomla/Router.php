@@ -38,18 +38,13 @@ class Router extends Database{
 		}
 
 		if($this->routerView == 'category'){
-			$q = "SELECT title, alias FROM $this->categories WHERE id = '$id'";
+			$q = "SELECT title, alias, parent_id FROM $this->categories WHERE id = '$id'";
 			$result = $this->q($q);
-			$this->categoryAlias = $result[0]['alias'];
-			$this->categoryTitle = $result[0]['title'];
-			$pathAlias = $this->categoryAlias;
-		}
 
-		if($this->routerView == 'category'){
-			$q = "SELECT title, alias FROM $this->categories WHERE id = '$id'";
-			$result = $this->q($q);
 			$this->categoryAlias = $result[0]['alias'];
 			$this->categoryTitle = $result[0]['title'];
+			$this->categoryParentId = $result[0]['parent_id'];
+
 			$pathAlias = $this->categoryAlias;
 		}
 
