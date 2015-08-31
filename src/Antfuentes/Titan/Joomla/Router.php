@@ -23,11 +23,12 @@ class Router extends Database{
 			$this->categoryId = $result[0]['catid'];
 			$this->articleAlias = $result[0]['alias'];
 
-			$q = "SELECT title, alias FROM $this->categories WHERE id = '$this->categoryId'";
+			$q = "SELECT title, alias, parent_id FROM $this->categories WHERE id = '$this->categoryId'";
 			$result = $this->q($q);
 
 			$this->categoryAlias = $result[0]['alias'];
 			$this->categoryTitle = $result[0]['title'];
+			$this->categoryParentId = $result[0]['parent_id'];
 
 			if($this->categoryAlias == 'static'){
 				$pathAlias = $this->articleAlias;
