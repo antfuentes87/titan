@@ -44,10 +44,11 @@ class Article extends Database{
 		$this->variables($results);
 	}
 
-	public function sections($dir, $articleAlias, $outerElement){
+	public function sections($routerId, $dir, $articleAlias, $outerElement){
 		$h = new Html();
 		$db = new Database();
 
+		$this->routerId = $routerId;
 		$this->articleAlias = $articleAlias;
 		$sections = scandir($dir);
 		
