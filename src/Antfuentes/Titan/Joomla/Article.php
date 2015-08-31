@@ -54,7 +54,7 @@ class Article extends Database{
 		$h->b($outerElement, 0, 1, '', '{"id":"'.$this->articleAlias.'"}');
 		foreach($sections as $sectionKey => $section){
 			if($section <> '.' AND $section <> '..'){
-				$searchSection = strpos($section, PHP_FILE_EXT);
+				$searchSection = strpos($section, PHP_EXT);
 				if($searchSection == false){
 					$sectionExplode = explode('_', $section);
 					$this->sectionId = $sectionExplode[0];
