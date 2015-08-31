@@ -44,6 +44,22 @@ class Router extends Database{
 			$pathAlias = $this->categoryAlias;
 		}
 
+		if($this->routerView == 'category'){
+			$q = "SELECT title, alias FROM $this->categories WHERE id = '$id'";
+			$result = $this->q($q);
+			$this->categoryAlias = $result[0]['alias'];
+			$this->categoryTitle = $result[0]['title'];
+			$pathAlias = $this->categoryAlias;
+		}
+
+		if($this->routerView == 'categories'){
+			$q = "SELECT title, alias FROM $this->categories WHERE id = '$id'";
+			$result = $this->q($q);
+			$this->categoryAlias = $result[0]['alias'];
+			$this->categoryTitle = $result[0]['title'];
+			$pathAlias = $this->categoryAlias;
+		}
+
 		if($option){
 			$path .= $option . '/';
 		}
