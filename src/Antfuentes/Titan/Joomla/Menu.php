@@ -18,7 +18,7 @@ class Menu extends Database{
 		$query = "SELECT * FROM `$this->menu` WHERE id = '$id'";
 		$array = $this->q($query);
 		foreach($array as $key => $val){
-			$this->currentLink = $val['link'].'&Itemid='.$id;
+			return $val['link'].'&Itemid='.$id;
 		}
 	}
 	
