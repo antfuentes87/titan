@@ -29,5 +29,21 @@ class String{
 	    preg_match('/'.$left.'(.*?)'.$right.'/s', $in, $match);
 	    return empty($match[1]) ? NULL : $match[1];
 	}
+	public function breakByGroupSize($groupSize, $html){
+		$groupExit = $groupSize - 1;
+		$data = count($exp);
+		$data = ($data / $groupSize) - 1;
+
+		for ($z = 0; $z <= $data; $z++){
+		    $array[] = $z;
+		}
+
+		foreach($array as $key => $val){
+		    require($html.'.php');
+		    for ($i = 0; $i <= $groupExit; $i++){
+		        $array[$i] += $groupSize;
+		    }    
+		}
+	}
 }
 ?>
