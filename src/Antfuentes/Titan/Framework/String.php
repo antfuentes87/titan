@@ -36,7 +36,7 @@ class String{
 		$data = ($data / $groupSize) - 1;
 
 		for ($z = 0; $z <= $data; $z++){
-		    $this->array[] = $z;
+		    $this->key[] = $z;
 		}
 
 		foreach($this->key as $key => $val){
