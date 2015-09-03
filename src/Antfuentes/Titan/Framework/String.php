@@ -29,14 +29,14 @@ class String{
 	    preg_match('/'.$left.'(.*?)'.$right.'/s', $in, $match);
 	    return empty($match[1]) ? NULL : $match[1];
 	}
-	public function breakByGroupSize($groupSize, $array, $html, $dir = __DIR__){
+	public function breakByGroupSize($groupSize, $array, $dir, $html){
 		$this->array = $array;
 		$groupExit = $groupSize - 1;
 		$data = count($array);
 		$data = ($data / $groupSize) - 1;
 
 		for ($z = 0; $z <= $data; $z++){
-		    $this->key[] = $z;
+		    $this->array[] = $z;
 		}
 
 		foreach($this->key as $key => $val){
