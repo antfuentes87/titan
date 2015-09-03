@@ -32,7 +32,7 @@ class String{
 	public function breakByGroupSize($groupSize, $breakArray, $html){
 		$this->breakArray = $breakArray;
 		$groupExit = $groupSize - 1;
-		$data = count($exp);
+		$data = count($breakArray);
 		$data = ($data / $groupSize) - 1;
 
 		for ($z = 0; $z <= $data; $z++){
