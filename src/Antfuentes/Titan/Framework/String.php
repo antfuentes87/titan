@@ -29,7 +29,7 @@ class String{
 	    preg_match('/'.$left.'(.*?)'.$right.'/s', $in, $match);
 	    return empty($match[1]) ? NULL : $match[1];
 	}
-	public function breakByGroupSize($groupSize, $array, $html, $dir = '__DIR__'){
+	public function breakByGroupSize($groupSize, $array, $html, $dir = __DIR__){
 		$this->array = $array;
 		$groupExit = $groupSize - 1;
 		$data = count($array);
