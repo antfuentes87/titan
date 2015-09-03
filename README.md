@@ -11,7 +11,7 @@ Notes
 </h3>
 <ul>
 	<li>
-	Class - Article: When calling Func::sectionsContent inside of section.php use $this for the variables.
+	<strong>Class - Article:</strong> When calling Func::sectionsContent inside of section.php use $this for the variables.
 	</li>
 </ul>
 
