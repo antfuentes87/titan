@@ -29,20 +29,20 @@ class String{
 	    preg_match('/'.$left.'(.*?)'.$right.'/s', $in, $match);
 	    return empty($match[1]) ? NULL : $match[1];
 	}
-	public function breakByGroupSize($groupSize, $breakArray, $html){
-		$this->breakArray = $breakArray;
+	public function breakByGroupSize($groupSize, $array, $dir, $html){
+		$this->array = $array;
 		$groupExit = $groupSize - 1;
-		$data = count($breakArray);
+		$data = count($array);
 		$data = ($data / $groupSize) - 1;
 
 		for ($z = 0; $z <= $data; $z++){
-		    $this->array[] = $z;
+		    $this->key[] = $z;
 		}
 
-		foreach($this->array as $key => $val){
-		    require($html.'.php');
+		foreach($this->key as $key => $val){
+		    require($dir.'/'.$html.'.php');
 		    for ($i = 0; $i <= $groupExit; $i++){
-		        $this->array[$i] += $groupSize;
+		        $this->key[$i] += $groupSize;
 		    }    
 		}
 	}
