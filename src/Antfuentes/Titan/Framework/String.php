@@ -46,7 +46,7 @@ class String{
 		    }    
 		}
 	}
-	public function replaceString($string, $search, $replaceWith){
+	public function replaceString($search, $replaceWith, $string){
 		$cleanString = str_replace($search, $replaceWith, $string);
 		return $cleanString;
 	}
