@@ -46,5 +46,9 @@ class String{
 		    }    
 		}
 	}
+	public function replaceString($string, $search, $replaceWith){
+		$cleanString = str_replace($search, $replaceWith, $string);
+		return $cleanString;
+	}
 }
 ?>
