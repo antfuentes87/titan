@@ -2,7 +2,7 @@
 Titan
 </h1>
 <h4>
-PHP Framework for <a href="https://github.com/decayedcross/what">Joomla Tempalte 3.x - What</a>.
+PHP Framework for a <a href="https://github.com/decayedcross/what">Joomla Template 3.x</a>.
 </h4>
 <p>
 Please follow the instructions at the What repository to install this Framework via Composer into the template.
