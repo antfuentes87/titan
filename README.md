@@ -1,18 +1,11 @@
 <h1>
 Titan
 </h1>
-
 <h4>
-PHP Template Framework that works inside of a Joomla 3.x template
+PHP Framework for <a href="https://github.com/decayedcross/what">Joomla Tempalte 3.x - What</a>.
 </h4>
-
-<h3>
-Notes
-</h3>
-<ul>
-	<li>
-	<strong>Class - Article:</strong> When calling Func::sectionsContent inside of section.php use $this for the variables.
-	</li>
-</ul>
+<p>
+Please follow the instructions at the What repository to install this Framework via Composer into the template.
+</p>
 
 [![Join the chat at https://gitter.im/antfuentes87/titan](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/antfuentes87/titan?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
