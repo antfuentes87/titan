@@ -35,11 +35,7 @@ class String{
 			$this->array = $array;
 			$data = count($this->array);
 
-			for ($z = 0; $z <= $data; $z++){
-			    $this->key[] = $z;
-			}
-
-			foreach($this->key as $key => $val){
+			foreach($data as $this->key => $val){
 			    require($dir.'/'.$html.'.php');
 			}
 		}else{
