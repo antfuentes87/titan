@@ -63,7 +63,7 @@ class String{
 
 	public function getFileExt($array){
 		$results = explode('.', $array);
-		return $results;
+		return $results[1];
 
 	}
 }
