@@ -29,23 +29,38 @@ class String{
 	    preg_match('/'.$left.'(.*?)'.$right.'/s', $in, $match);
 	    return empty($match[1]) ? NULL : $match[1];
 	}
+
 	public function breakByGroupSize($groupSize, $array, $dir, $html){
-		$this->array = $array;
-		$groupExit = $groupSize - 1;
-		$data = count($array);
-		$data = ($data / $groupSize) - 1;
+		if($groupSize == 1){
+			$this->array = $array;
+			$data = count($this->array);
 
-		for ($z = 0; $z <= $data; $z++){
-		    $this->key[] = $z;
-		}
+			for ($z = 0; $z <= $data; $z++){
+			    $this->key[] = $z;
+			}
 
-		foreach($this->key as $key => $val){
-		    require($dir.'/'.$html.'.php');
-		    for ($i = 0; $i <= $groupExit; $i++){
-		        $this->key[$i] += $groupSize;
-		    }    
+			foreach($this->key as $key => $val){
+			    require($dir.'/'.$html.'.php');
+			}
+		}else{
+			$this->array = $array;
+			$groupExit = $groupSize - 1;
+			$data = count($array);
+			$data = ($data / $groupSize) - 1;
+
+			for ($z = 0; $z <= $data; $z++){
+			    $this->key[] = $z;
+			}
+
+			foreach($this->key as $key => $val){
+			    require($dir.'/'.$html.'.php');
+			    for ($i = 0; $i <= $groupExit; $i++){
+			        $this->key[$i] += $groupSize;
+			    }    
+			}
 		}
 	}
+
 	public function replaceString($search, $replaceWith, $string){
 		$cleanString = str_replace($search, $replaceWith, $string);
 		return $cleanString;
