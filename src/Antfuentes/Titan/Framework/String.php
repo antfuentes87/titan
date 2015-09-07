@@ -31,14 +31,15 @@ class String{
 	}
 
 	public function breakByGroupSize($groupSize, $array, $dir, $html){
+		$this->array = $array;
+
 		if($groupSize == 1){
 			foreach($this->array as $this->key => $this->content){
 			    require($dir.'/'.$html.'.php');
 			}
 		}else{
-			$this->array = $array;
 			$groupExit = $groupSize - 1;
-			$data = count($array);
+			$data = count($this->array);
 			$data = ($data / $groupSize) - 1;
 
 			for ($z = 0; $z <= $data; $z++){
