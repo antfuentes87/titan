@@ -32,10 +32,7 @@ class String{
 
 	public function breakByGroupSize($groupSize, $array, $dir, $html){
 		if($groupSize == 1){
-			$this->array = $array;
-			$data = count($this->array);
-
-			foreach($data as $this->key => $val){
+			foreach($this->array as $this->key => $this->content){
 			    require($dir.'/'.$html.'.php');
 			}
 		}else{
