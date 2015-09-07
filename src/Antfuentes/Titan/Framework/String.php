@@ -17,6 +17,7 @@ class String{
 			$this->{'text_'.$resultKey} = trim($result);
 		}
 	}
+
 	public function formatDate($dateFormat, $dateKey){
 		return date($dateFormat, strtotime($dateKey));
 	}
@@ -58,6 +59,12 @@ class String{
 	public function replaceString($search, $replaceWith, $string){
 		$cleanString = str_replace($search, $replaceWith, $string);
 		return $cleanString;
+	}
+
+	public function getFileExt($array){
+		$results = explode('.', $array);
+		return $results;
+
 	}
 }
 ?>
