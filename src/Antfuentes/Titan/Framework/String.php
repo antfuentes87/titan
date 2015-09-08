@@ -33,6 +33,7 @@ class String{
 
 	public function breakByGroupSize($groupSize, $array, $dir, $html){
 		$this->array = $array;
+		$this->count = count($this->array);
 		$this->counter = 0;
 		if($groupSize == 1){
 			foreach($this->array as $this->key => $this->content){
