@@ -20,7 +20,7 @@ class Pagination{
 		}
 		$html->b('section', 0, 1, '', '{"class":"row", "data-min-height":"10"}');
 			$html->b('div', 0, 1, '', '{"class":"vertical"}');
-				$html->b('div', 0, 1, '', '{"class":"col col-center col-base-8"}');
+				$html->b('div', 0, 1, '', '{"class":"col col-center col-xs-8"}');
 					$html->b('ul', 0, 1, '','{"class":"pagination"}');
 						$html->b('li', 0, 1, '', '{"class":"back"}');
 							$html->b('a', 0, 1, '', '{"href":"'.$menu->link($itemId).'&page='.$back.'"}');
