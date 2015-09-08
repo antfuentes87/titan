@@ -17,9 +17,6 @@ class Category extends Database{
 		$results = $this->q($query);
 
 		$total = count($results);
-		
-		echo $total;
-
 		$pages = @$_GET["page"];
 		$pagesTotal = ceil($total / $showLimit);
 		if($pages < 1){
