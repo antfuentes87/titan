@@ -17,21 +17,21 @@ class Article extends Database{
 
 	public function content($id){		
 		$this->tables();
-		$query = "SELECT * FROM $this->content WHERE id = '$id' ORDER BY id DESC";
+		$query = "SELECT * FROM $this->content WHERE id = '$id' AND state = 1 ORDER BY id DESC";
 		$results = $this->q($query);
 		$this->variables($results);
 	}
 
 	public function introtext($id){		
 		$this->tables();
-		$query = "SELECT introtext FROM $this->content WHERE id = '$id' ORDER BY id DESC";
+		$query = "SELECT introtext FROM $this->content WHERE id = '$id' AND state = 1 ORDER BY id DESC";
 		$results = $this->q($query);
 		$this->variables($results);
 	}
 	
 	public function single($colum, $id){		
 		$this->tables();
-		$query = "SELECT '$colum' FROM $this->content WHERE id = '$id' ORDER BY id DESC";
+		$query = "SELECT '$colum' FROM $this->content WHERE id = '$id' AND state = 1 ORDER BY id DESC";
 		$results = $this->q($query);
 		$this->variables($results);
 	}
@@ -40,7 +40,7 @@ class Article extends Database{
 		$this->tables();
 		$results = $this->q("SELECT id FROM $this->categories WHERE alias = '$articleAlias'");
 		$catid = $results[0]['id'];
-		$results = $this->q("SELECT * FROM $this->content WHERE catid = '$catid' AND alias = '$sectionAlias'");
+		$results = $this->q("SELECT * FROM $this->content WHERE catid = '$catid' AND state = 1 AND alias = '$sectionAlias'");
 		$this->variables($results);
 	}
 

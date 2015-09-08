@@ -13,7 +13,7 @@ class Category extends Database{
 	
 	public function content($id, $itemId, $showLimit, $template){
 		$this->tables();
-		$query = "SELECT * FROM $this->content WHERE catid = '$id' ORDER BY id DESC";
+		$query = "SELECT * FROM $this->content WHERE catid = '$id' AND state = 1 ORDER BY id DESC";
 		$results = $this->q($query);
 
 		$total = count($results);
