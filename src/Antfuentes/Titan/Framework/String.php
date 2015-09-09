@@ -40,17 +40,16 @@ class String{
 			    require($dir.'/'.$html.'.php');
 			}
 		}else{
-			$groupExit = $groupSize - 1;
-			$data = count($this->array);
-			$data = ($data / $groupSize) - 1;
-
-			for ($z = 0; $z <= $data; $z++){
+			for ($z = 0; $z < $groupSize; $z++){
 			    $this->key[] = $z;
 			}
 
-			foreach($this->key as $key => $val){
+			$numGroups = count($array) / $groupSize;
+			$numGroups = floor($numGroups);
+			
+			for($g = 0; $g < $numGroups; $g++){
 			    require($dir.'/'.$html.'.php');
-			    for ($i = 0; $i <= $groupExit; $i++){
+			    for ($i = 0; $i < $groupSize; $i++){
 			        $this->key[$i] += $groupSize;
 			    }    
 			}
