@@ -19,5 +19,9 @@ class Css{
 	const faEnvelopeO = '{"class":"fa fa-envelope-o"}';
 	const faEnvelope = '{"class":"fa fa-envelope"}';
 	const faBars = '{"class":"fa fa-bars"}';
+
+	/*Leviathan Framework*/
+	const classRow = '{"class":"row"}';
+	const classVertical = '{"class":"vertical"}';
 }
 ?>
