@@ -23,5 +23,6 @@ class Css{
 	/*Leviathan Framework*/
 	const classRow = '{"class":"row"}';
 	const classVertical = '{"class":"vertical"}';
+	const classColCenter = '{"class":"col col-center col-xs-11 col-sm-10 col-md-9 col-lg-8"}';
 }
 ?>
