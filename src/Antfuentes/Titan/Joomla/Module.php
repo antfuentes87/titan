@@ -4,10 +4,10 @@ namespace Antfuentes\Titan\Joomla;
 use Antfuentes\Titan\Joomla\Database;
 
 class Module extends Article{
-	public function loadSections($dir, $section){
+	public function loadSections($routerId, $dir, $articleAlias){
 		$dir .= '/views/com_content/article/';
 		$dir .= $section;
-		$this->sections($dir, $section, $section);
+		$this->sections($routerId, $dir, $articleAlias, $articleAlias);
 	}
 	
 	public function getContentCatergoryAlias($alias){
