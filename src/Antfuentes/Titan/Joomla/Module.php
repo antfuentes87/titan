@@ -3,7 +3,7 @@ namespace Antfuentes\Titan\Joomla;
 
 use Antfuentes\Titan\Joomla\Database;
 
-class module extends article{
+class Module extends Article{
 	public function loadSections($dir, $section){
 		$dir .= '/views/com_content/article/';
 		$dir .= $section;
