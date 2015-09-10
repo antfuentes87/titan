@@ -4,7 +4,9 @@ namespace Antfuentes\Titan\Joomla;
 use Antfuentes\Titan\Joomla\Database;
 
 class Module extends Article{
-	public function loadSections($routerId, $dir, $articleAlias){
+	public function loadSections($routerId, $categoryParentId, $dir, $articleAlias){
+		$this->routerId = $routerId;
+		$this->categoryParentId = $categoryParentId;
 		$dir .= '/views/com_content/article/';
 		$dir .= $articleAlias;
 		$this->sections($routerId, $dir, $articleAlias, $articleAlias);
