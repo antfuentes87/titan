@@ -6,7 +6,7 @@ use Antfuentes\Titan\Joomla\Database;
 class Module extends Article{
 	public function loadSections($routerId, $dir, $articleAlias){
 		$dir .= '/views/com_content/article/';
-		$dir .= $section;
+		$dir .= $articleAlias;
 		$this->sections($routerId, $dir, $articleAlias, $articleAlias);
 	}
 	
