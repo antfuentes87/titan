@@ -54,6 +54,7 @@ class String{
 			    }    
 			}
 		}
+		unset($this->key);
 	}
 
 	public function replaceString($search, $replaceWith, $string){
