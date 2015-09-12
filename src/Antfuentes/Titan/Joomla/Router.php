@@ -87,6 +87,10 @@ class Router extends Database{
 		ob_end_clean();
 		return $data;
 	}
+
+	public function initRequire(){
+		require($this->path);
+	}
 	
 	public function meta(){
 		if($this->routerView == 'article'){
