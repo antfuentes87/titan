@@ -24,7 +24,7 @@ class Menu extends Database{
 	
 	public function load($menutype){
 		$this->tables();
-		$query = "SELECT * FROM `$this->menu` WHERE menutype = '$menutype' ORDER BY lft DESC";
+		$query = "SELECT * FROM `$this->menu` WHERE menutype = '$menutype' ORDER BY lft ASC";
 		$array = $this->q($query);
 		return $array;
 	}
