@@ -25,7 +25,7 @@ class Module extends Article{
 		$results = $this->q("SELECT id FROM `$db->menu` WHERE alias = '$this->alias'");
 		$this->itemId = $results[0]['id'];
 		
-		$results = $db->q("SELECT * FROM `$db->content` WHERE catid = '$this->catid' ORDER BY id DESC LIMIT 0,4");
+		$results = $db->q("SELECT * FROM `$db->content` WHERE catid = '$this->catid' ORDER BY id DESC");
 		return $results;
 	}
 }
