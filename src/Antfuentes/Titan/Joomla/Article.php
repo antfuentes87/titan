@@ -64,6 +64,7 @@ class Article extends Database{
 
 	public function singleArticle($dir, $articleAlias, $file = 'default'){
 		$path = $dir;
+		$path .= '/';
 		$path .= $articleAlias;
 		$path .= '/';
 		$path .= $file;
