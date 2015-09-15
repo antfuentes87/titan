@@ -25,10 +25,9 @@ class Database{
             mysqli_set_charset($this->link, 'utf8');
         }
     }
-	
-	function __destruct() {
-       mysqli_close($this->link);
-	}
+function __destruct() {
+mysqli_close($this->link);
+}
 	
 	public function q($q){
 		$data = array();
