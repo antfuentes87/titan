@@ -62,8 +62,9 @@ class Article extends Database{
 		$this->variables($results);
 	}
 
-	public function singleArticle($articleAlias, $file = 'default'){
-		$path = $articleAlias;
+	public function singleArticle($dir, $articleAlias, $file = 'default'){
+		$path = $dir;
+		$path .= $articleAlias;
 		$path .= '/';
 		$path .= $file;
 		$path .= '.php';
