@@ -1,7 +1,17 @@
 <?php
 namespace Antfuentes\Titan\Joomla;
+use Antfuentes\Titan\Framework;
 
-use Antfuentes\Titan\Framework\Html;
+/*
+* Database
+*
+* Please report bugs on https://github.com/antfuentes87/titan/issues
+*
+* @author Anthony Fuentes <antfuentes87@gmail.com>
+* @author Shaun Farrell <shaunfarrell86@gmail.com>
+* @copyright Copyright (c) 2015, MNDYRS. All rights reserved.
+* @license MIT License
+*/
 
 class Database{
     public $link;
@@ -49,13 +59,6 @@ class Database{
 		}
     }
 	
-    public function dump($dump){
-        $h = new Html();
-        $h->b('pre', 0, 1);
-            var_dump($dump);
-        $h->b('pre', 1, 1);
-    }
-	
 	public function variables($results){
 		foreach($results as $resultKey => $result){
 			foreach ($result as $column => $data) {
@@ -69,5 +72,12 @@ class Database{
 			$this->{$column} = $data;
 		}
 	}
+
+    public function dump($dump){
+        $h = new Framework\Html();
+        $h->b('pre', 0, 1);
+            var_dump($dump);
+        $h->b('pre', 1, 1);
+    }
 }
 ?>
