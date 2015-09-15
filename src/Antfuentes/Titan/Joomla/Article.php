@@ -62,7 +62,7 @@ class Article extends Database{
 		$this->variables($results);
 	}
 
-	public function singleArticle($dir, $articleAlias, $file = 'default'){
+	public function singleArticle($dir, $articleAlias, $routerId,  $file = 'default'){
 		$path = $dir;
 		$path .= '/';
 		$path .= $articleAlias;
@@ -71,6 +71,7 @@ class Article extends Database{
 		$path .= '.php';
 
 		$this->articleAlias = $articleAlias;
+		$this->routerId = $routerId;
 
 		require($path);
 	}
