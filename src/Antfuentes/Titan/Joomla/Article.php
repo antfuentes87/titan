@@ -70,6 +70,8 @@ class Article extends Database{
 		$path .= $file;
 		$path .= '.php';
 
+		$this->articleAlias = $articleAlias;
+
 		require($path);
 	}
 
