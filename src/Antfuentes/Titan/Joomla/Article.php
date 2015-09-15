@@ -62,6 +62,15 @@ class Article extends Database{
 		$this->variables($results);
 	}
 
+	public function singleArticle($articleAlias, $file = 'default'){
+		$path = $articleAlias;
+		$path .= '/';
+		$path .= $file;
+		$path .= '.php';
+
+		require($path);
+	}
+
 	public function sectionContent($articleAlias, $sectionAlias){
 		$this->tables();
 		$results = $this->q("SELECT id FROM $this->categories WHERE alias = '$articleAlias'");
