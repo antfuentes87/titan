@@ -28,5 +28,20 @@ class Module extends Article{
 		$results = $db->q("SELECT * FROM `$db->content` WHERE catid = '$this->catid' ORDER BY id DESC");
 		return $results;
 	}
+
+	public function loadArticleByAlias($articleAlias){
+		$db = new Database;
+		$router = new Router;
+		
+		$db->tables();
+	
+		$articleResults = $db->q("SELECT * FROM `$db->content` WHERE alias = '$articleAlias'");
+		$db->variables($articleResults);
+		
+		$catergoryResults = $db->q("SELECT alias FROM `$db->categories` WHERE id = '$db->catid'");
+		$catergoryAlias = $catergoryResults[0]['alias'];	
+		
+		require($router->buildArticleRoute($catergoryAlias, $articleAlias));
+	}
 }
 ?>

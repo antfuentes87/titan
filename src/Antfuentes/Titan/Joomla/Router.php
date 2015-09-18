@@ -162,5 +162,28 @@ class Router extends Database{
 	public function js($dir, $location){
 		require_once($dir.'/js/'.$location.PHP_FILE_EXT);
 	}
+
+	public function buildArticleRoute($catergoryAlias, $articleAlias){
+		$routes = array(
+			ROUTER_VIEW_PATH,
+			"com_content",
+			"article",
+			$catergoryAlias,
+			$articleAlias,
+			"default.php"
+		);
+			
+		$routesStop = count($routes) - 1;
+	
+		foreach($routes as $routeKey => $route){
+			if($routeKey == $routesStop){
+				$router .= $route;
+			}else{
+				$router .= $route.'/';
+			}
+		}
+		
+		return $router;
+	}
 }
 ?>
