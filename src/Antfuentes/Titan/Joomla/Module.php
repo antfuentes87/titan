@@ -41,7 +41,7 @@ class Module extends Article{
 			}
 		}
 
-		$catergoryResults = $db->q("SELECT alias FROM `$db->categories` WHERE id = '$this->catid'");
+		$catergoryResults = $db->q("SELECT alias, parent_id FROM `$db->categories` WHERE id = '$this->catid'");
 		$this->catergoryAlias = $catergoryResults[0]['alias'];
 		$this->catergoryParentId = $catergoryResults[0]['parent_id'];
 
