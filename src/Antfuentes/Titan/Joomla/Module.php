@@ -56,7 +56,7 @@ class Module extends Article{
 		$query = $db->q("SELECT id FROM `$db->categories` WHERE path = '$categoryModulePath'");
 		$categoryModuleId = $query[0]['id'];
 
-		$query = $db->q("SELECT * FROM `$db->content` WHERE catid = '$categoryModuleId'");
+		$query = $db->q("SELECT * FROM `$db->content` WHERE catid = '$categoryModuleId' ORDER BY id ASC");
 
 		return $query;
 	}
