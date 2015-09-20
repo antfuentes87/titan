@@ -92,19 +92,19 @@ class Article extends Database{
 
 		//Select all table names from database
 		//Remove table prefix and build variables for each table name in the database
-		//e.g. -- $db->content woud output the content table name with the correct table prefix
+		//e.g. -- $this->content woud output the content table name with the correct table prefix
 		$this->tables();
 
 		//Select catid from content table where any id matching the Router Id
 		//The router id is the article id
 		//The article is located in the Static category
-		$query = $this->q("SELECT catid FROM $db->content WHERE id = '$this->routerId'");
+		$query = $this->q("SELECT catid FROM $this->content WHERE id = '$this->routerId'");
 
 		//Create a varaible to store the catid from the above query
 		$categoryId = $query[0]['catid'];
 
 		//Select path from categories table where any id mataching the category id variable created above
-		$query = $this->q("SELECT path FROM $db->categories WHERE id = '$categoryId'");
+		$query = $this->q("SELECT path FROM $this->categories WHERE id = '$categoryId'");
 
 		//Create a variable to store the path from the above query
 		//The catergory path will be the State / City / Static
@@ -136,13 +136,13 @@ class Article extends Database{
 
 		//Select id from categories table where any path mataching the section path variable created above
 		//There will be only one of these, as each city requires a Static category, with the Static articles inside
-		$query = $this->q("SELECT id FROM $db->categories WHERE path = '$categorySectionPath'");
+		$query = $this->q("SELECT id FROM $this->categories WHERE path = '$categorySectionPath'");
 
 		//Create a varaible to store the category id from the above query
 		$categoryId = $query[0]['id'];
 
 		//Select all columns / rows with a mathcing alias of the section alias and the category id from variable created above
-		$query = $this->q("SELECT * FROM $db->content WHERE alias = '$this->sectionAlias' AND catid = '$categoryId'");
+		$query = $this->q("SELECT * FROM $this->content WHERE alias = '$this->sectionAlias' AND catid = '$categoryId'");
 
 
 		//Build query into variables that you can use in the section.php
