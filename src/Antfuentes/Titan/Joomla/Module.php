@@ -31,22 +31,21 @@ class Module extends Article{
 
 	public function loadArticleByAlias($articleAlias){
 		$db = new Database;
-		$router = new Router;
-		
+		$router = new Router;	
 		$db->tables();
-	
 		$articleResults = $db->q("SELECT * FROM `$db->content` WHERE alias = '$articleAlias'");
-		
+
 		foreach($articleResults as $articleResultsKey => $articleResult){
 			foreach ($articleResult as $articleColumn => $articleData) {
 				$this->{$articleColumn} = $articleData;
 			}
 		}
-		
+
 		$catergoryResults = $db->q("SELECT alias FROM `$db->categories` WHERE id = '$this->catid'");
-		$catergoryAlias = $catergoryResults[0]['alias'];	
-		
-		require($router->buildArticleRoute($catergoryAlias, $articleAlias));
+		$this->catergoryAlias = $catergoryResults[0]['alias'];
+		$this->catergoryParentId = $catergoryResults[0]['parent_id'];
+
+		require($router->buildArticleRoute($this->catergoryAlias, $articleAlias));
 	}
 }
 ?>
