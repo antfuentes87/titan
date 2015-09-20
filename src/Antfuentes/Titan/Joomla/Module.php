@@ -1,7 +1,7 @@
 <?php
 namespace Antfuentes\Titan\Joomla;
 
-use Antfuentes\Titan\Joomla\Database;
+use Antfuentes\Titan\Joomla;
 
 class Module extends Article{
 	public function loadSections($routerId, $categoryParentId, $dir, $articleAlias){
@@ -13,7 +13,7 @@ class Module extends Article{
 	}
 	
 	public function getContentCatergoryAlias($alias){
-		$db = new Database;
+		$db = new Joomla\Database;
 		$db->tables();
 	
 		$results = $db->q("SELECT * FROM `$db->categories` WHERE alias = '$alias'");
@@ -29,9 +29,39 @@ class Module extends Article{
 		return $results;
 	}
 
+	public function cityStateloadArticleByAlias($routerId, $categoryAlais){
+		$db = new Joomla\Database;
+		$db->tables();
+
+		$this->routerId = $routerId;
+		$this->categoryAlias = $categoryAlias;
+
+		$query = $db->q("SELECT catid FROM `$db->content` WHERE id = '$this->routerId'");
+		$categoryId = $query[0]['catid'];
+
+		$query = $db->q("SELECT path FROM `$db->categories` WHERE id = '$categoryId'");
+		$categoryPath = $query[0]['path'];
+		$categoryPathExplode = explode('/', $categoryPath);
+
+		$categoryState = $categoryPathExplode[0];
+		$categoryCity = $categoryPathExplode[1];
+		$category = $this->categoryAlais;
+
+		$categoryModulePath = $categoryState;
+		$categoryModulePath .= '/';
+		$categoryModulePath .= $categoryCity;
+		$categoryModulePath .= '/';
+		$categoryModulePath .= $category;
+
+		$query = $db->q("SELECT id FROM `$db->categories` WHERE path = '$categoryModulePath'");
+		$categoryModuleId = $query[0]['id'];
+
+		$query = $db->q("SELECT * FROM `$db->content` WHERE catid = '$categoryModuleId'");
+	}
+
 	public function loadArticleByAlias($articleAlias, $routerCategoryId, $routerBase){
-		$db = new Database;
-		$router = new Router;	
+		$db = new Joomla\Database;
+		$router = new Joomla\Router;	
 		$db->tables();
 
 		$this->articleAlias = $articleAlias;
