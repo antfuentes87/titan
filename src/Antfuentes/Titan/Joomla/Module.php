@@ -57,6 +57,8 @@ class Module extends Article{
 		$categoryModuleId = $query[0]['id'];
 
 		$query = $db->q("SELECT * FROM `$db->content` WHERE catid = '$categoryModuleId'");
+
+		return $query;
 	}
 
 	public function loadArticleByAlias($articleAlias, $routerCategoryId, $routerBase){
