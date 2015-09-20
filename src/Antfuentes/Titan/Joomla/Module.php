@@ -29,12 +29,13 @@ class Module extends Article{
 		return $results;
 	}
 
-	public function loadArticleByAlias($articleAlias){
+	public function loadArticleByAlias($articleAlias, $routerCatergoryId){
 		$db = new Database;
 		$router = new Router;	
 		$db->tables();
 
 		$this->articleAlias = $articleAlias;
+		$this->routerCatergoryId = $routerCatergoryId;
 
 		$articleResults = $db->q("SELECT * FROM `$db->content` WHERE alias = '$this->articleAlias'");
 
