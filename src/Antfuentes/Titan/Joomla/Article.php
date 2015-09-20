@@ -84,6 +84,71 @@ class Article extends Database{
 		$this->variables($results);
 	}
 
+	public function stateCitySectionContent($routerId, $articleAlias, $sectionAlias){
+		//Rebuild required variables back into the class for later use
+		$this->routerId = $routerId;
+		$this->articleAlias = $articleAlias;
+		$this->sectionAlias = $sectionAlias;
+
+		//Select all table names from database
+		//Remove table prefix and build variables for each table name in the database
+		//e.g. -- $db->content woud output the content table name with the correct table prefix
+		$this->tables();
+
+		//Select catid from content table where any id matching the Router Id
+		//The router id is the article id
+		//The article is located in the Static category
+		$query = $this->q("SELECT catid FROM $db->content WHERE id = '$this->routerId'");
+
+		//Create a varaible to store the catid from the above query
+		$categoryId = $query[0]['catid'];
+
+		//Select path from categories table where any id mataching the category id variable created above
+		$query = $this->q("SELECT path FROM $db->categories WHERE id = '$categoryId'");
+
+		//Create a variable to store the path from the above query
+		//The catergory path will be the State / City / Static
+		$categoryPath = $query[0]['path'];
+
+		//Explode the category path variable above by a foward slash
+		$categoryPathExplode = explode('/', $categoryPath);
+
+		//Create a variable to store the first part of the exploded category path explode array
+		//This variable is the state
+		$state = $categoryPathExplode[0];
+
+		//Create a variable to store the second part of the exploded category path explode array
+		//This variable is the city
+		$city = $categoryPathExplode[1];
+
+		//Create a variable to store the third part of the exploded category path explode array
+		//This variable is the really the article alias of the article that is in the Static category
+		//e.g. -- Home, FAQ, Contact, etc.. Any articles you create inside of the Static category
+		$category = $this->articleAlias;
+
+		//Build the category section path
+		//This variable is created so we can look for this path in the categories table
+		$categorySectionPath =  $state;
+		$categorySectionPath .= '/';
+		$categorySectionPath .= $city;
+		$categorySectionPath .= '/';
+		$categorySectionPath .= $category;
+
+		//Select id from categories table where any path mataching the section path variable created above
+		//There will be only one of these, as each city requires a Static category, with the Static articles inside
+		$query = $this->q("SELECT id FROM $db->categories WHERE path = '$categorySectionPath'");
+
+		//Create a varaible to store the category id from the above query
+		$categoryId = $query[0]['id'];
+
+		//Select all columns / rows with a mathcing alias of the section alias and the category id from variable created above
+		$query = $this->q("SELECT * FROM $db->content WHERE alias = '$this->sectionAlias' AND catid = '$categoryId'");
+
+
+		//Build query into variables that you can use in the section.php
+		$this->variables($query);
+	}
+
 	public function sections($routerId, $dir, $articleAlias, $outerElement){
 		$h = new Framework\Html();
 
