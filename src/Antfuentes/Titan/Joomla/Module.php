@@ -33,7 +33,10 @@ class Module extends Article{
 		$db = new Database;
 		$router = new Router;	
 		$db->tables();
-		$articleResults = $db->q("SELECT * FROM `$db->content` WHERE alias = '$articleAlias'");
+
+		$this->articleAlias = $articleAlias;
+
+		$articleResults = $db->q("SELECT * FROM `$db->content` WHERE alias = '$this->articleAlias'");
 
 		foreach($articleResults as $articleResultsKey => $articleResult){
 			foreach ($articleResult as $articleColumn => $articleData) {
@@ -45,7 +48,7 @@ class Module extends Article{
 		$this->categoryAlias = $categoryResults[0]['alias'];
 		$this->categoryParentId = $categoryResults[0]['parent_id'];
 
-		require($router->buildArticleRoute($this->categoryAlias, $articleAlias));
+		require($router->buildArticleRoute($this->categoryAlias, $this->articleAlias));
 	}
 }
 ?>
