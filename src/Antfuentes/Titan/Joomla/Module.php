@@ -29,7 +29,7 @@ class Module extends Article{
 		return $results;
 	}
 
-	public function stateCityLoadArticleByAlias($routerId, $categoryAlias){
+	public function stateCityLoadCategoryByAlias($routerId, $categoryAlias){
 		$db = new Joomla\Database;
 		$db->tables();
 
