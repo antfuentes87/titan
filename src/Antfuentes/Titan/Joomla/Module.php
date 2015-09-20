@@ -29,7 +29,7 @@ class Module extends Article{
 		return $results;
 	}
 
-	public function stateCityloadArticleByAlias($routerId, $categoryAlais){
+	public function stateCityLoadArticleByAlias($routerId, $categoryAlias){
 		$db = new Joomla\Database;
 		$db->tables();
 
@@ -45,7 +45,7 @@ class Module extends Article{
 
 		$categoryState = $categoryPathExplode[0];
 		$categoryCity = $categoryPathExplode[1];
-		$category = $this->categoryAlais;
+		$category = $this->categoryAlias;
 
 		$categoryModulePath = $categoryState;
 		$categoryModulePath .= '/';
