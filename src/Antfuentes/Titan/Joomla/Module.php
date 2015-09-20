@@ -41,11 +41,11 @@ class Module extends Article{
 			}
 		}
 
-		$catergoryResults = $db->q("SELECT alias, parent_id FROM `$db->categories` WHERE id = '$this->catid'");
-		$this->catergoryAlias = $catergoryResults[0]['alias'];
-		$this->catergoryParentId = $catergoryResults[0]['parent_id'];
+		$categoryResults = $db->q("SELECT alias, parent_id FROM `$db->categories` WHERE id = '$this->catid'");
+		$this->categoryAlias = $categoryResults[0]['alias'];
+		$this->categoryParentId = $categoryResults[0]['parent_id'];
 
-		require($router->buildArticleRoute($this->catergoryAlias, $articleAlias));
+		require($router->buildArticleRoute($this->categoryAlias, $articleAlias));
 	}
 }
 ?>
