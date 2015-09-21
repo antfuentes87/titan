@@ -61,11 +61,12 @@ class Module extends Article{
 		return $query;
 	}
 
-	public function loadArticleByAlias($articleAlias, $routerCategoryId, $routerBase){
+	public function loadArticleByAlias($articleAlias, $routerId, $routerCategoryId, $routerBase){
 		$db = new Joomla\Database;
 		$router = new Joomla\Router;	
 		$db->tables();
 
+		$this->routerId = $routerId;
 		$this->articleAlias = $articleAlias;
 		$this->routerCategoryId = $routerCategoryId;
 		$this->routerBase = $routerBase;
