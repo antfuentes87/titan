@@ -86,9 +86,9 @@ class Menu extends Database{
 		$state = $pathExplode[0];
 		$city = $pathExplode[1];
 
-		$pathMenu = $city;
+		$pathMenu = $alias;
 		$pathMenu .= '-';
-		$pathMenu .= $alias;
+		$pathMenu .= $city;
 
 		$query = $this->q("SELECT id, link FROM `$this->menu` WHERE path = '$pathMenu'");
 
