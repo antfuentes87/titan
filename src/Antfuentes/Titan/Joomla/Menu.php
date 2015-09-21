@@ -1,8 +1,7 @@
 <?php
 namespace Antfuentes\Titan\Joomla;
 
-use Antfuentes\Titan\Framework\Element;
-use Antfuentes\Titan\Framework\Html;
+use Antfuentes\Titan\Framework;
 
 class Menu extends Database{
 	
@@ -30,7 +29,7 @@ class Menu extends Database{
 	}
 
 	public function build($menutype, $element, $active, $id = '', $class = ''){
-		$h = new Html();
+		$h = new Framework\Html();
 
 		$data = '';
 
@@ -66,6 +65,42 @@ class Menu extends Database{
 
 	public function categoryBlog($catid, $menuid){
 		$this->categoryBlog = 'index.php?option=com_content&view=category&layout=blog&id='.$catid.'&Itemid='.$menuid;
+	}
+
+	public function stateCityLinkByAlias($routerId, $routerView, $alias){
+		$string = new Framework\String();
+
+		$this->tables();		
+		if ($routerView == 'article'){
+			$query = $this->q("SELECT catid FROM `$this->content` WHERE id = '$routerId'");
+			$catId = $query[0]['catid'];
+			$query = $this->q("SELECT path FROM `$this->categories` WHERE id = '$catId'");
+			$path = $query[0]['path'];	
+		}else{
+			$query = $this->q("SELECT path FROM `$this->categories` WHERE id = '$routerId'");
+			$path = $query[0]['path'];
+		}
+		
+		$pathExplode = $string->explode($path, '/');
+
+		$state = $pathExplode[0];
+		$city = $pathExplode[1];
+
+		$pathMenu = $city;
+		$pathMenu .= '-';
+		$pathMenu .= $alias;
+
+		$query = $this->q("SELECT id, link FROM `$this->menu` WHERE path = '$pathMenu'");
+
+
+		$menuId = $query[0]['id'];
+		$menuLink = $query[0]['link'];
+
+		$link = $menuLink;
+		$link .= '&Itemid=';
+		$link .= $menuId;
+
+		return $link;
 	}
 }
 ?>
