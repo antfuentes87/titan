@@ -67,5 +67,18 @@ class String{
 		return $results[1];
 
 	}
+
+	public function removeFileExt($filename){	
+		// Explode filename by period(.)
+		//$filename is generaly basename(__FILE__)
+		$filenameExplode = $this->explode($filename, '.');
+
+		//Set variable to first explode result
+		$filenameNoExt = $filenameExplode[0];
+		
+		//return filenameNoExt	
+		return $filenameNoExt;
+	}
+
 }
 ?>
