@@ -67,6 +67,38 @@ class Menu extends Database{
 		$this->categoryBlog = 'index.php?option=com_content&view=category&layout=blog&id='.$catid.'&Itemid='.$menuid;
 	}
 
+	public function linkByMenuTypeAlias($menutype, $alias){
+		//Select all table names from database
+		//Remove table prefix and build variables for each table name in the database
+		//e.g. -- $this->content woud output the content table name with the correct table prefix
+		$this->tables();
+
+		//Query the menu table for menutype and alias that is equal to the $menutype and $alias
+		$query = $this->q("SELECT id, title, link FROM `$this->menu` WHERE menutype = '$menutype' AND alias = '$alias'");
+
+		//Create variables for each column queried
+		$id = $query[0]['id'];
+		$title = $query[0]['title'];
+		$link = $query[0]['link'];
+
+		//Build final link
+		$route = $link;
+		$route .= '&Itemid=';
+		$route .= $id;
+		
+		//Make the alias clean!
+		$stripAlias = preg_replace("/[^A-Za-z0-9 ]/", '', $alias);
+		
+		//Create the variable names for link and title
+		//Attach the clean alias to front of the link and title variables for uniqueness
+		$varLink = $stripAlias.'_link';
+		$varTitle = $stripAlias.'_title';
+		
+		//Create class variables with the newly created variable names from above
+		$this->{$varLink} = $route;
+		$this->{$varTitle} = $title;
+	}
+
 	public function stateCityLinkByAlias($routerId, $routerView, $alias){
 		$string = new Framework\String();
 
