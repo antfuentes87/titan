@@ -87,8 +87,11 @@ class Menu extends Database{
 		$route .= $id;
 		
 		//Make the alias clean!
-		$stripAlias = preg_replace("/[^A-Za-z0-9 ]/", '', $alias);
-		
+		//Set the alias to all lower case
+		//Remove everything that is not a-z and 0-9 and spaces
+		$stripAlias = strtolower($alias); 
+		$stripAlias = preg_replace("/[^a-z0-9 ]/", '', $stripAlias);
+
 		//Create the variable names for link and title
 		//Attach the clean alias to front of the link and title variables for uniqueness
 		$varLink = $stripAlias.'_link';
