@@ -56,6 +56,8 @@ class Database{
 		return $data;
 	}
 
+	//Selects all table names from the database, that $link is connected to
+	//Remove joomla prefix and rebuild class variables
 	public function tables(){
 		$array = $this->q('SHOW TABLES');
 		foreach($array as $key => $val){	
