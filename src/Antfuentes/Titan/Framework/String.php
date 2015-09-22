@@ -67,5 +67,45 @@ class String{
 		return $results[1];
 
 	}
+
+	public function removeFileExt($filename){	
+		// Explode filename by period(.)
+		//$filename is generaly basename(__FILE__)
+		$filenameExplode = $this->explode($filename, '.');
+		if (is_array($filenameExplode)){
+
+			//Set variable to first explode result
+			$filenameNoExt = $filenameExplode[0];
+		}else{
+
+			//Set variable to false if cannot explode by period(.)
+			$filenameNoExt = false;
+		}
+		
+
+		//return $filenameNoExt	
+		return $filenameNoExt;
+	}
+
+	public function createCssIdByArrayKey($string, $key){
+		//Create css id based on array key
+		//Remove file extension from $sting
+		$filename = $this->removeFileExt($string);
+
+		//Check if $filename is true or false
+		if($filename == false){
+
+			//If filename is false
+			$id = $string.'-'.$key;
+		}else{
+
+			//If filename is true
+			$id = $filename.'-'.$key;	
+		}
+		
+		// return $id
+		return $id;
+	}
+
 }
 ?>
